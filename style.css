@@ -1,0 +1,1147 @@
+
+/* =========================================
+   PROCALC - PROFESSIONAL CALCULATOR
+   COMPLETE CSS DESIGN
+========================================= */
+
+
+/* =========================================
+   1. GOOGLE FONT AND BASIC SETTINGS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #7965f5;
+    --primary-light: #a18eff;
+    --secondary: #29b6f6;
+
+    --background: #090d1b;
+    --background-light: #11182b;
+
+    --card: rgba(22, 30, 52, 0.92);
+    --card-border: rgba(255, 255, 255, 0.09);
+
+    --text: #ffffff;
+    --text-secondary: #a6b0c5;
+    --text-muted: #78849c;
+
+    --number-bg: #202a43;
+    --number-hover: #2d3958;
+
+    --utility-bg: #35415e;
+    --operator-bg: #5144a8;
+
+    --equal-bg: linear-gradient(135deg, #7965f5, #a05cf5);
+
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   2. LIGHT THEME
+========================================= */
+
+body.light-theme {
+    --background: #edf1fa;
+    --background-light: #ffffff;
+
+    --card: rgba(255, 255, 255, 0.95);
+    --card-border: rgba(25, 40, 70, 0.10);
+
+    --text: #17213b;
+    --text-secondary: #56627a;
+    --text-muted: #8993a8;
+
+    --number-bg: #edf0f8;
+    --number-hover: #dce3f3;
+
+    --utility-bg: #dce3f3;
+    --operator-bg: #e4defd;
+
+    --shadow: 0 20px 50px rgba(40, 55, 90, 0.10);
+}
+
+
+/* =========================================
+   3. BACKGROUND EFFECTS
+========================================= */
+
+.background-effects {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.18;
+}
+
+.glow-one {
+    width: 400px;
+    height: 400px;
+    background: #7055ff;
+    top: -150px;
+    left: -100px;
+}
+
+.glow-two {
+    width: 350px;
+    height: 350px;
+    background: #087fc4;
+    bottom: 5%;
+    right: -100px;
+}
+
+.glow-three {
+    width: 250px;
+    height: 250px;
+    background: #b04cff;
+    top: 45%;
+    left: 45%;
+    opacity: 0.08;
+}
+
+
+/* =========================================
+   4. MAIN APPLICATION
+========================================= */
+
+.app-container {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 30px 0 20px;
+}
+
+
+/* =========================================
+   5. HEADER
+========================================= */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0 25px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #7965f5, #a05cf5);
+    border-radius: 15px;
+    font-size: 27px;
+    color: white;
+    box-shadow: 0 8px 25px rgba(121, 101, 245, 0.3);
+}
+
+.brand-details h1 {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+.brand-details p {
+    color: var(--text-secondary);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.online-dot,
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    background: #36d399;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(54, 211, 153, 0.5);
+}
+
+.theme-button {
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    background: var(--number-bg);
+    color: var(--text);
+    font-size: 19px;
+    transition: 0.3s ease;
+}
+
+.theme-button:hover {
+    transform: rotate(15deg);
+    background: var(--number-hover);
+}
+
+
+/* =========================================
+   6. WELCOME SECTION
+========================================= */
+
+.welcome-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 48px 0 42px;
+}
+
+.welcome-label,
+.section-label {
+    color: var(--primary-light);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.welcome-content h2 {
+    font-size: clamp(30px, 5vw, 43px);
+    margin-top: 12px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.welcome-content p {
+    margin-top: 12px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.welcome-decoration {
+    width: 95px;
+    height: 95px;
+    border-radius: 27px;
+    display: grid;
+    place-items: center;
+    font-size: 55px;
+    color: white;
+    background: linear-gradient(135deg, #7965f5, #a05cf5);
+    box-shadow: 0 15px 35px rgba(121, 101, 245, 0.25);
+    transform: rotate(8deg);
+}
+
+
+/* =========================================
+   7. MAIN LAYOUT
+========================================= */
+
+.main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
+    gap: 25px;
+    align-items: stretch;
+}
+
+.calculator-card,
+.history-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 25px;
+    padding: 27px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(15px);
+}
+
+
+/* =========================================
+   8. CALCULATOR HEADER
+========================================= */
+
+.calculator-header,
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.calculator-title h2,
+.history-header h2 {
+    font-size: 22px;
+    margin-top: 8px;
+    font-weight: 700;
+}
+
+.calculator-title p,
+.history-header p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.calculator-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 12px;
+    border-radius: 20px;
+    background: rgba(54, 211, 153, 0.09);
+    color: #36d399;
+    font-size: 11px;
+}
+
+
+/* =========================================
+   9. DISPLAY
+========================================= */
+
+.display-container {
+    background: linear-gradient(135deg, #111a32, #1b2140);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 19px;
+    padding: 20px;
+    margin-top: 25px;
+    min-height: 155px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body.light-theme .display-container {
+    background: linear-gradient(135deg, #e6eaff, #f2edff);
+    border-color: rgba(60, 70, 120, 0.1);
+}
+
+.display-top,
+.display-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.display-label {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #9da9c7;
+    font-weight: 700;
+}
+
+.copy-button {
+    color: #c2b6ff;
+    background: rgba(121, 101, 245, 0.15);
+    padding: 8px 11px;
+    border-radius: 9px;
+    font-size: 10px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.copy-button:hover {
+    background: rgba(121, 101, 245, 0.3);
+}
+
+.expression-display {
+    text-align: right;
+    color: #9da9c7;
+    font-size: 14px;
+    min-height: 20px;
+    overflow-wrap: anywhere;
+    margin-top: 13px;
+}
+
+.current-display {
+    text-align: right;
+    color: white;
+    font-size: clamp(35px, 6vw, 48px);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    overflow-wrap: anywhere;
+    margin-top: 7px;
+}
+
+body.light-theme .current-display {
+    color: #17213b;
+}
+
+.display-bottom {
+    margin-top: 13px;
+    font-size: 9px;
+    color: #8c9bb8;
+}
+
+.display-indicator {
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   10. KEYPAD SECTION
+========================================= */
+
+.keypad-section {
+    margin-top: 26px;
+}
+
+.keypad-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.keypad-heading h3 {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.keypad-heading span {
+    font-size: 10px;
+    color: var(--text-secondary);
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 11px;
+}
+
+.key {
+    min-height: 61px;
+    border-radius: 15px;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--number-bg);
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.key:hover {
+    transform: translateY(-2px);
+    background: var(--number-hover);
+}
+
+.key:active {
+    transform: scale(0.95);
+}
+
+.key.number {
+    color: var(--text);
+}
+
+.key.utility {
+    background: var(--utility-bg);
+    font-size: 15px;
+    color: var(--text);
+}
+
+.key.utility:hover {
+    filter: brightness(1.15);
+}
+
+.key.operator {
+    background: var(--operator-bg);
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.key.operator:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 7px 18px rgba(121, 101, 245, 0.2);
+}
+
+.key.equal {
+    background: var(--equal-bg);
+    color: white;
+    font-size: 27px;
+    box-shadow: 0 8px 20px rgba(121, 101, 245, 0.25);
+}
+
+.key.equal:hover {
+    filter: brightness(1.12);
+    box-shadow: 0 10px 25px rgba(121, 101, 245, 0.4);
+}
+
+
+/* =========================================
+   11. CALCULATOR FOOTER
+========================================= */
+
+.calculator-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 17px;
+    border-top: 1px solid var(--card-border);
+}
+
+.footer-feature {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--text-secondary);
+    font-size: 10px;
+}
+
+.footer-feature span {
+    color: var(--primary-light);
+    font-size: 14px;
+}
+
+
+/* =========================================
+   12. HISTORY CARD
+========================================= */
+
+.history-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-symbol {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    background: rgba(121, 101, 245, 0.15);
+    color: var(--primary-light);
+    font-size: 24px;
+}
+
+.history-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 15px;
+    background: rgba(121, 101, 245, 0.09);
+    border: 1px solid rgba(121, 101, 245, 0.12);
+}
+
+.summary-label {
+    font-size: 9px;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.history-summary h3 {
+    margin-top: 8px;
+    font-size: 28px;
+}
+
+.summary-icon {
+    font-size: 30px;
+    color: var(--primary-light);
+}
+
+.history-list {
+    margin-top: 20px;
+    flex: 1;
+    min-height: 200px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.empty-history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 210px;
+    padding: 20px;
+}
+
+.empty-history-icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    border-radius: 18px;
+    background: var(--number-bg);
+    font-size: 25px;
+    color: var(--text-secondary);
+}
+
+.empty-history h3 {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.empty-history p {
+    color: var(--text-secondary);
+    font-size: 11px;
+    margin-top: 8px;
+    line-height: 1.6;
+}
+
+
+/* History Item - JavaScript will create these */
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    margin-bottom: 10px;
+    background: var(--number-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    animation: fadeIn 0.3s ease;
+}
+
+.history-item-expression {
+    color: var(--text-secondary);
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.history-item-result {
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.history-footer {
+    padding-top: 17px;
+    border-top: 1px solid var(--card-border);
+}
+
+.clear-history-button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 11px;
+    background: rgba(255, 90, 100, 0.10);
+    color: #ff777f;
+    font-size: 11px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.clear-history-button:hover {
+    background: rgba(255, 90, 100, 0.2);
+}
+
+
+/* =========================================
+   13. FEATURES SECTION
+========================================= */
+
+.features-section {
+    padding: 65px 0 35px;
+}
+
+.features-heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.features-heading h2 {
+    margin-top: 12px;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.features-heading p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.feature-card {
+    padding: 23px 18px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(121, 101, 245, 0.45);
+}
+
+.feature-icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: rgba(121, 101, 245, 0.15);
+    color: var(--primary-light);
+    font-size: 23px;
+}
+
+.feature-card h3 {
+    font-size: 13px;
+    margin-top: 17px;
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    font-size: 11px;
+    line-height: 1.7;
+    margin-top: 9px;
+}
+
+
+/* =========================================
+   14. INFORMATION SECTION
+========================================= */
+
+.information-section {
+    margin: 20px 0 45px;
+}
+
+.information-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(121, 101, 245, 0.2);
+    background: linear-gradient(
+        110deg,
+        rgba(121, 101, 245, 0.14),
+        rgba(160, 92, 245, 0.06)
+    );
+}
+
+.information-icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #7965f5, #a05cf5);
+    border-radius: 17px;
+    font-size: 28px;
+    color: white;
+}
+
+.information-content h2 {
+    font-size: 17px;
+}
+
+.information-content p {
+    margin-top: 8px;
+    color: var(--text-secondary);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   15. MAIN FOOTER
+========================================= */
+
+.main-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 25px 0;
+    border-top: 1px solid var(--card-border);
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: linear-gradient(135deg, #7965f5, #a05cf5);
+    color: white;
+}
+
+.footer-brand h3 {
+    font-size: 14px;
+}
+
+.footer-brand p {
+    color: var(--text-secondary);
+    font-size: 9px;
+    margin-top: 4px;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-center p {
+    color: var(--text-secondary);
+    font-size: 10px;
+}
+
+.footer-center .copyright {
+    margin-top: 7px;
+    font-size: 9px;
+    color: var(--text-muted);
+}
+
+.footer-right {
+    display: flex;
+    gap: 7px;
+}
+
+.footer-right span {
+    padding: 7px 10px;
+    border-radius: 7px;
+    background: var(--number-bg);
+    color: var(--text-secondary);
+    font-size: 9px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   16. TOAST NOTIFICATION
+========================================= */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    padding: 13px 20px;
+    border-radius: 12px;
+    background: #273653;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+
+/* =========================================
+   17. ANIMATIONS
+========================================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.calculator-card {
+    animation: fadeIn 0.6s ease;
+}
+
+.history-card {
+    animation: fadeIn 0.8s ease;
+}
+
+.feature-card {
+    animation: fadeIn 0.7s ease;
+}
+
+
+/* =========================================
+   18. CUSTOM SCROLLBAR
+========================================= */
+
+.history-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.history-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   19. TABLET RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .history-card {
+        min-height: 300px;
+    }
+
+    .history-list {
+        max-height: 300px;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   20. MOBILE RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 600px) {
+
+    .app-container {
+        width: 94%;
+        padding-top: 18px;
+    }
+
+    .header {
+        padding-bottom: 18px;
+    }
+
+    .brand-logo {
+        width: 41px;
+        height: 41px;
+    }
+
+    .brand-details h1 {
+        font-size: 19px;
+    }
+
+    .brand-details p {
+        font-size: 9px;
+    }
+
+    .system-status {
+        display: none;
+    }
+
+    .welcome-section {
+        padding: 35px 0;
+    }
+
+    .welcome-content h2 {
+        font-size: 30px;
+    }
+
+    .welcome-content p {
+        font-size: 12px;
+        max-width: 260px;
+    }
+
+    .welcome-decoration {
+        width: 60px;
+        height: 60px;
+        font-size: 35px;
+        border-radius: 18px;
+    }
+
+    .calculator-card,
+    .history-card {
+        padding: 19px;
+        border-radius: 20px;
+    }
+
+    .calculator-title h2,
+    .history-header h2 {
+        font-size: 19px;
+    }
+
+    .calculator-status {
+        padding: 7px 9px;
+        font-size: 9px;
+    }
+
+    .display-container {
+        padding: 15px;
+        min-height: 140px;
+    }
+
+    .keypad {
+        gap: 8px;
+    }
+
+    .key {
+        min-height: 55px;
+        border-radius: 12px;
+        font-size: 18px;
+    }
+
+    .features-section {
+        padding-top: 45px;
+    }
+
+    .features-heading h2 {
+        font-size: 23px;
+    }
+
+    .features-grid {
+        gap: 10px;
+    }
+
+    .feature-card {
+        padding: 16px 12px;
+    }
+
+    .feature-card h3 {
+        font-size: 11px;
+    }
+
+    .feature-card p {
+        font-size: 10px;
+    }
+
+    .information-card {
+        padding: 18px;
+        gap: 13px;
+    }
+
+    .information-content h2 {
+        font-size: 14px;
+    }
+
+    .main-footer {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-brand {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-center {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   21. SMALL MOBILE SCREEN
+========================================= */
+
+@media (max-width: 360px) {
+
+    .app-container {
+        width: 96%;
+    }
+
+    .calculator-card,
+    .history-card {
+        padding: 14px;
+    }
+
+    .keypad {
+        gap: 6px;
+    }
+
+    .key {
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    .key.utility {
+        font-size: 12px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   22. REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}

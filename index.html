@@ -1,0 +1,609 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="ProCalc is a professional calculator for simple everyday calculations.">
+    <meta name="keywords" content="Calculator, ProCalc, Online Calculator, Mathematics">
+    <meta name="author" content="ProCalc">
+
+    <title>ProCalc - Professional Calculator</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background-effects">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="glow glow-three"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="app-container">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="brand-section">
+
+                <div class="brand-logo">
+                    <span>✦</span>
+                </div>
+
+                <div class="brand-details">
+                    <h1>ProCalc</h1>
+                    <p>Professional Calculator</p>
+                </div>
+
+            </div>
+
+            <div class="header-actions">
+
+                <div class="system-status">
+                    <span class="online-dot"></span>
+                    <span>System Online</span>
+                </div>
+
+                <button
+                    type="button"
+                    id="themeToggle"
+                    class="theme-button"
+                    aria-label="Toggle theme">
+                    ☀️
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME SECTION -->
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="welcome-label">
+                    SMART CALCULATION EXPERIENCE
+                </span>
+
+                <h2>Calculate Smarter.</h2>
+
+                <p>
+                    Simple, fast and reliable calculations
+                    designed for your everyday needs.
+                </p>
+
+            </div>
+
+            <div class="welcome-decoration">
+                <span>＋</span>
+            </div>
+
+        </section>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-layout">
+
+
+            <!-- CALCULATOR SECTION -->
+            <section class="calculator-card">
+
+                <!-- Calculator Heading -->
+                <div class="calculator-header">
+
+                    <div class="calculator-title">
+
+                        <span class="section-label">
+                            STANDARD CALCULATOR
+                        </span>
+
+                        <h2>Calculator</h2>
+
+                        <p>Perform your calculations easily.</p>
+
+                    </div>
+
+                    <div class="calculator-status">
+                        <span class="status-indicator"></span>
+                        Ready
+                    </div>
+
+                </div>
+
+
+                <!-- DISPLAY SECTION -->
+                <div class="display-container">
+
+                    <div class="display-top">
+
+                        <span class="display-label">
+                            CURRENT EXPRESSION
+                        </span>
+
+                        <button
+                            type="button"
+                            id="copyButton"
+                            class="copy-button">
+
+                            <span>▢</span>
+                            Copy Result
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="expression"
+                        class="expression-display"
+                        aria-live="polite">
+
+                        Ready to calculate
+
+                    </div>
+
+
+                    <div
+                        id="currentDisplay"
+                        class="current-display"
+                        aria-live="polite"
+                        aria-atomic="true">
+
+                        0
+
+                    </div>
+
+
+                    <div class="display-bottom">
+
+                        <span class="display-indicator">
+                            ● Calculation Display
+                        </span>
+
+                        <span id="copyMessage"></span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- KEYPAD -->
+                <div class="keypad-section">
+
+                    <div class="keypad-heading">
+
+                        <h3>NUMBER PAD</h3>
+
+                        <span>Basic Operations</span>
+
+                    </div>
+
+
+                    <div class="keypad">
+
+
+                        <!-- ROW 1 -->
+
+                        <button
+                            type="button"
+                            class="key utility"
+                            data-action="clear"
+                            aria-label="All Clear">
+                            AC
+                        </button>
+
+                        <button
+                            type="button"
+                            class="key utility"
+                            data-action="delete"
+                            aria-label="Delete">
+                            DEL
+                        </button>
+
+                        <button
+                            type="button"
+                            class="key utility"
+                            data-action="percent">
+                            %
+                        </button>
+
+                        <button
+                            type="button"
+                            class="key operator"
+                            data-action="operator"
+                            data-operator="/">
+                            ÷
+                        </button>
+
+
+                        <!-- ROW 2 -->
+
+                        <button type="button" class="key number" data-number="7">7</button>
+                        <button type="button" class="key number" data-number="8">8</button>
+                        <button type="button" class="key number" data-number="9">9</button>
+
+                        <button
+                            type="button"
+                            class="key operator"
+                            data-action="operator"
+                            data-operator="*">
+                            ×
+                        </button>
+
+
+                        <!-- ROW 3 -->
+
+                        <button type="button" class="key number" data-number="4">4</button>
+                        <button type="button" class="key number" data-number="5">5</button>
+                        <button type="button" class="key number" data-number="6">6</button>
+
+                        <button
+                            type="button"
+                            class="key operator"
+                            data-action="operator"
+                            data-operator="-">
+                            −
+                        </button>
+
+
+                        <!-- ROW 4 -->
+
+                        <button type="button" class="key number" data-number="1">1</button>
+                        <button type="button" class="key number" data-number="2">2</button>
+                        <button type="button" class="key number" data-number="3">3</button>
+
+                        <button
+                            type="button"
+                            class="key operator"
+                            data-action="operator"
+                            data-operator="+">
+                            +
+                        </button>
+
+
+                        <!-- ROW 5 -->
+
+                        <button
+                            type="button"
+                            class="key utility"
+                            data-action="sign">
+                            +/−
+                        </button>
+
+                        <button
+                            type="button"
+                            class="key number"
+                            data-number="0">
+                            0
+                        </button>
+
+                        <button
+                            type="button"
+                            class="key number"
+                            data-action="decimal">
+                            .
+                        </button>
+
+                        <button
+                            type="button"
+                            class="key equal"
+                            data-action="equals"
+                            aria-label="Equals">
+                            =
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CALCULATOR FOOTER -->
+                <div class="calculator-footer">
+
+                    <div class="footer-feature">
+                        <span>⌨</span>
+                        Keyboard Supported
+                    </div>
+
+                    <div class="footer-feature">
+                        <span>✓</span>
+                        Ready to Use
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- HISTORY SECTION -->
+            <aside class="history-card">
+
+                <!-- History Heading -->
+                <div class="history-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            RECENT ACTIVITY
+                        </span>
+
+                        <h2>Calculation History</h2>
+
+                        <p>Your previous calculations.</p>
+
+                    </div>
+
+                    <div class="history-symbol">
+                        ◷
+                    </div>
+
+                </div>
+
+
+                <!-- History Summary -->
+                <div class="history-summary">
+
+                    <div>
+
+                        <span class="summary-label">
+                            TOTAL RECORDS
+                        </span>
+
+                        <h3 id="historyCount">0</h3>
+
+                    </div>
+
+                    <div class="summary-icon">
+                        ▤
+                    </div>
+
+                </div>
+
+
+                <!-- History List -->
+                <div
+                    id="historyList"
+                    class="history-list"
+                    aria-live="polite">
+
+                    <div class="empty-history">
+
+                        <div class="empty-history-icon">
+                            ◷
+                        </div>
+
+                        <h3>No Calculations Yet</h3>
+
+                        <p>
+                            Your calculation history
+                            will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- History Footer -->
+                <div class="history-footer">
+
+                    <button
+                        type="button"
+                        id="clearHistory"
+                        class="clear-history-button">
+
+                        <span>⌫</span>
+                        Clear History
+
+                    </button>
+
+                </div>
+
+            </aside>
+
+        </main>
+
+
+
+        <!-- FEATURES SECTION -->
+        <section class="features-section">
+
+            <div class="features-heading">
+
+                <span class="section-label">
+                    WHY CHOOSE PROCALC?
+                </span>
+
+                <h2>Everything You Need.</h2>
+
+                <p>
+                    Useful features for simple and
+                    convenient calculations.
+                </p>
+
+            </div>
+
+
+            <div class="features-grid">
+
+
+                <!-- Feature 1 -->
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        ＋
+                    </div>
+
+                    <h3>Basic Operations</h3>
+
+                    <p>
+                        Addition, subtraction,
+                        multiplication and division.
+                    </p>
+
+                </article>
+
+
+                <!-- Feature 2 -->
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        ◷
+                    </div>
+
+                    <h3>Calculation History</h3>
+
+                    <p>
+                        View your recent calculations
+                        in one convenient place.
+                    </p>
+
+                </article>
+
+
+                <!-- Feature 3 -->
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        ◐
+                    </div>
+
+                    <h3>Theme Options</h3>
+
+                    <p>
+                        Enjoy a comfortable interface
+                        with dark and light themes.
+                    </p>
+
+                </article>
+
+
+                <!-- Feature 4 -->
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        ⌨
+                    </div>
+
+                    <h3>Keyboard Support</h3>
+
+                    <p>
+                        Enter numbers and perform
+                        calculations using your keyboard.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- INFORMATION SECTION -->
+        <section class="information-section">
+
+            <div class="information-card">
+
+                <div class="information-icon">
+                    ✦
+                </div>
+
+                <div class="information-content">
+
+                    <h2>Simple Calculations, Better Experience</h2>
+
+                    <p>
+                        ProCalc provides a clean and
+                        easy-to-use calculator interface
+                        for your daily mathematical tasks.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+                    ✦
+                </div>
+
+                <div>
+
+                    <h3>ProCalc</h3>
+
+                    <p>Professional Calculator</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-center">
+
+                <p>
+                    Designed for simple and smart calculations.
+                </p>
+
+                <p class="copyright">
+                    © 2026 ProCalc. All rights reserved.
+                </p>
+
+            </div>
+
+
+            <div class="footer-right">
+
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+
+            </div>
+
+
+        </footer>
+
+
+    </div>
+
+
+    <!-- NOTIFICATION -->
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite">
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
